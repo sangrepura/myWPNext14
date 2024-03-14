@@ -1,0 +1,49 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "eslint.format.enable": false,
+  "eslint.run": "onSave",
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#d3e961",
+    "activityBar.background": "#d3e961",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#1ba9c4",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#d3e961",
+    "statusBar.background": "#c7e334",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#adc81c",
+    "statusBarItem.remoteBackground": "#c7e334",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#c7e334",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#c7e33499",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#c7e334"
+}
