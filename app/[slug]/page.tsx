@@ -1,10 +1,9 @@
-import getAllBooks from '@/lib/queries/getAllBooks'
 import getAllPosts from '@/lib/queries/getAllPosts'
 import getPageBySlug from '@/lib/queries/getPageBySlug'
-import {Page, Post} from '@/lib/types'
+import { Page, Post } from '@/lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 /**
  * Fetches data from WordPress.
@@ -12,35 +11,31 @@ import {notFound} from 'next/navigation'
 async function fetchData(slug: string) {
   // If the slug is 'blog', fetch all posts.
   if (slug === 'blog') {
-    return {posts: await getAllPosts(), context: 'blog'}
+    return { posts: await getAllPosts(), context: 'blog' }
   }
 
-  // If the slug is 'books', fetch all books.
-  if (slug === 'books') {
-    return {posts: await getAllBooks(), context: 'books'}
-  }
 
   // Otherwise, this could be a page.
   const page = await getPageBySlug(slug)
 
   // If page data exists, return it.
   if (page) {
-    return {post: page}
+    return { post: page }
   }
 
   // Otherwise, return an error.
-  return {error: 'No data found'}
+  return { error: 'No data found' }
 }
 
 /**
  * Render a single page.
  */
-function RenderPage({page}: {page: Page}) {
+function RenderPage({ page }: { page: Page }) {
   return (
     <main className="flex flex-col gap-8">
       <article>
-        <h1 dangerouslySetInnerHTML={{__html: page.title}} />
-        <div dangerouslySetInnerHTML={{__html: page.content}} />
+        <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
+        <div dangerouslySetInnerHTML={{ __html: page.content }} />
       </article>
     </main>
   )
@@ -49,7 +44,7 @@ function RenderPage({page}: {page: Page}) {
 /**
  * Render posts list.
  */
-function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
+function RenderPostsList({ posts, context }: { posts: Post[]; context: string }) {
   return (
     <main className="flex flex-col gap-8">
       <h1 className="capitalize">Latest {context}</h1>
@@ -64,12 +59,12 @@ function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
               priority={true}
             />
             <Link href={`/${context}/${post.slug}`}>
-              <h2 dangerouslySetInnerHTML={{__html: post.title}} />
+              <h2 dangerouslySetInnerHTML={{ __html: post.title }} />
             </Link>
             <p className="text-sm text-gray-500">
               {post.commentCount} Comments
             </p>
-            <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
+            <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
             <Link className="button" href={`/${context}/${post.slug}`}>
               View Post
             </Link>
@@ -83,9 +78,9 @@ function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
 /**
  * Catch-all Archive Page route.
  */
-export default async function Archive({params}: {params: {slug: string}}) {
+export default async function Archive({ params }: { params: { slug: string } }) {
   // Get the slug from the params.
-  const {slug} = params
+  const { slug } = params
 
   // Fetch data from WordPress.
   const data = await fetchData(slug)

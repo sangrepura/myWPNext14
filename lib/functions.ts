@@ -11,6 +11,8 @@ export async function fetchGraphQL<T = any>(
   try {
     // Validate the WordPress GraphQL URL.
     const graphqlUrl = process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL
+    // eslint-disable-next-line no-console
+    console.log('graphqlUrl', graphqlUrl)
     if (!graphqlUrl) {
       throw new Error('Missing WordPress GraphQL URL environment variable!')
     }
@@ -44,6 +46,8 @@ export async function fetchGraphQL<T = any>(
         tags: ['graphql']
       }
     })
+    // eslint-disable-next-line no-console
+    console.log('response', response)
 
     // If the response status is not 200, throw an error.
     if (!response.ok) {

@@ -5,7 +5,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.wootest-79194b.ingress-bonde.ewp.live.**'
+        hostname: '*.wootest-79194b.ingress-bonde.ewp.live.**"'
+        //hostname: `${process.env.NEXT_REMOTE_PATTERN_HOSTNAME}`
       }
     ]
   },
